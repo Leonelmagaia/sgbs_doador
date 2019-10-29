@@ -1,22 +1,21 @@
 <template>
   
 
-<div class="header" link href='https://fonts.googleapis.com/css?family=Trebuchet MS' rel='stylesheet' font-family:Trebuchet MS >
-
 <div class="q-pa-md">
 
   <div class="row justify-center">
       
-      <div class="col-12 col-md-auto">
+    <div class="col-12 col-md-auto">
     <h3 text-wight-bolder >Por que Doar Sangue?</h3>
     <p>O sangue humano não pode ser fabricado artificialmente, 
         por isso, a doação é um acto de vital importância, e que ajuda a salvar vidas.</p>
 
     <h4>Veja alguns motivos para tua doação de sangue:</h4>
-    <p>- Uma doação pode slavar até 4 vidas;</p>
+    <p>- Uma doação pode salvar até 4 vidas;</p>
     <p>- O volume doado é reposto naturalmente pelo organismo em até 24 horas;</p>
-    <p>- O doador não se expõe a nenhum risco de contaminação, pois todo o material é esterilizado e descarável;</p>
-    <p>- Doar sangue náo engorda, nem emagrece, nã afina ou engrossa o sangue;</p>
+    <p>- O doador não se expõe a nenhum risco de contaminação, pois todo o material é esterilizado
+        e descartável;</p>
+    <p>- Doar sangue não engorda, nem emagrece, não afina ou engrossa o sangue;</p>
     <p >- Não é preciso estar em jejum;</p>
     <p>- O procedimento de doação leva pouco tempo;</p>
     <p >- O volume colectado, por padrão internacional, é de apenas 450ml;</p>
@@ -32,11 +31,12 @@
 
     <h4>E você sabia?</h4>
     <p>- Um em cada dez pacientes hospitalizados necessitam de transfusão sanguínea;</p>
-    <p>- Um bebê prematuro necessita e 1 a 4 unidades de concentrados de hemácias (um tipo de componente sanguíneo) durante o período
-        de internação;
+    <p>- Um bebê prematuro necessita de 1 a 4 unidades de concentrados de hemácias (um tipo de
+        componente sanguíneo) durante o período de internação;
     </p>
-    <p>- As bolsas colectadas anualmente em Moçambique, ao todo 3,5 milhões, são insuficientes para atender à demanda;</p>
-    <p>- O ideal, segundo Ministério da Saúde, seria alcançar 5,7 milhões de bolsas de sangue por ano.</p>
+    <p>- As bolsas colectadas anualmente em Moçambique, ao todo 3,5 milhões, são insuficientes para
+        atender à demanda;</p>
+    <p>- O ideal, segundo o Ministério da Saúde, seria alcançar 5,7 milhões de bolsas de sangue por ano.</p>
     <br>
     <br>
     <h5>TEU SANGUE PODE SALVAR ATE 4 VIDAS</h5>
@@ -49,7 +49,6 @@
 </div>
 
 
-</div>
 </div>
 
 </template>
@@ -65,7 +64,6 @@ color:#C0392B
 p{
 margin-top: .5em;
 }
-
 
 
 </style>

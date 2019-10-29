@@ -24,10 +24,10 @@
           <q-btn flat no-caps no-wrap label="Por que Doar Sangue?" v-if="$q.screen.gt.sm" to="/porquedoar">
           </q-btn>
 
-          <q-btn flat no-caps no-wrap label="Processo de Doação" v-if="$q.screen.gt.sm">
+          <q-btn flat no-caps no-wrap label="Processo de Doação" v-if="$q.screen.gt.sm"    to="/processo">
           </q-btn>
           
-          <q-btn outline rounded color="white" label="Entrar">
+          <q-btn outline rounded color="white" label="Entrar" v-if="$q.screen.gt.sm" to="/login">
           </q-btn>
 
           <q-btn round flat>
