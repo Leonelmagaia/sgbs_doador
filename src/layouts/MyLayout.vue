@@ -8,7 +8,7 @@
             <q-tooltip>Account</q-tooltip>
           </q-btn>
 
-        <q-btn flat no-caps no-wrap icon="favorite" v-if="$q.screen.gt.xs">
+        <q-btn flat no-caps no-wrap icon="favorite" v-if="$q.screen.gt.xs" to="/">
           <q-toolbar-title shrink class="text-weight-bold">
             SGBS
           </q-toolbar-title>
@@ -44,15 +44,39 @@
     </q-page-container>
   
 
+<br>
+<br>
+<br>
+<div class="footer">
 
-    <q-footer class="bg-red text-white"    >
-      <p>ola</p>
-    </q-footer>
+<div class="row">
+      <div class="col-auto">
+        <q-card dark bordered class="bg-grey-9 my-card">
+      <q-card-section>
+        <div class="text-h6">Our Changing Planet</div>
+      </q-card-section>
 
- 
+      <q-separator dark inset />
 
-
-
+      <q-card-section>
+        {{ lorem }}
+      </q-card-section>
+    </q-card>
+      </div>
+      <div class="col-auto">
+        .col
+      </div>
+      <div class="col-auto">
+        .col
+      </div>
+    </div>
+      
+      
+  </div>
+    
+      
+  
+  
 
   </q-layout>
 </template>
@@ -66,4 +90,15 @@ export default {
     }
   }
 }
+
 </script>
+
+<style lang="css" scoped>
+  
+.footer{
+    grid-area: ft;
+    background-color:#D11E13;
+    width: 100%;
+    height: 250px;
+  }
+</style>

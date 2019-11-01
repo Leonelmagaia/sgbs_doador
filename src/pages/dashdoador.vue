@@ -1,146 +1,130 @@
 <template>
+  <q-layout view="lHh Lpr lFf">
+    <q-header elevated>
+      <q-toolbar class="brand">
 
-    <q-layout view="hHh Lpr lff" container style="height: 600px" class="shadow-2 rounded-borders">
+        <q-btn
+          flat
+          dense
+          round
+          @click="leftDrawerOpen = !leftDrawerOpen"
+          icon="menu"
+          aria-label="Menu"
+        />
 
-      <q-drawer
-        v-model="drawer"
-        show-if-above
-        :width="200"
-        :breakpoint="500"
-        bordered
-        content-class="bg-red-9"
-      >
+        <q-toolbar-title>
+          <q-icon name="favorite" />
+          SGBS
+        </q-toolbar-title>
+     <q-space />
 
-        
+     <q-btn-dropdown
+      split
+      content-class="bg-red-7"
 
-        <q-scroll-area class="fit">
-          <q-list v-for="(menuItem, index) in menuList" :key="index">
+    >
+      <div class="row no-wrap q-pa-md">
+        <div class="column">
+          <div class="text-h6 q-mb-md">Definicoes</div>
+          <q-toggle v-model="mobileData" label="Use Mobile Data" />
+          <q-toggle v-model="bluetooth" label="Bluetooth" />
+        </div>
 
-            <q-item clickable v-ripple>
-              <q-item-section avatar>
-                <q-icon name="profile" />
-              </q-item-section>
+        <q-separator vertical inset class="q-mx-lg" />
 
-              <q-item-section>
-                Perfil
-              </q-item-section>
-            </q-item>
+        <div class="column items-center">
+          <q-avatar size="72px">
+            <img src="https://cdn.quasar.dev/img/boy-avatar.png">
+          </q-avatar>
 
-        
+          <div class="text-subtitle1 q-mt-md q-mb-xs">Faruque</div>
 
-           <q-separator v-if="menuItem.separator" />
-
-          </q-list>
-        </q-scroll-area>
-      </q-drawer>
-
-      <q-page-container>
-        <q-page padding>
-          <p>
-            <div class="q-pa-md">
-
-    <div class="row">
-      <div class="col">
-       <q-card style="max-width: 200px ">
-        <q-card-section>
-          <div class="text">Agendamentos</div>
-        </q-card-section>
-
-        <q-separator inset />
-
-        <q-card-section>
-       <q-knob
-      :min="5"
-      :max="10"
-      v-model="value1"
-      show-value
-      size="50px"
-      :thickness="0.22"
-      color="teal"
-      track-color="grey-3"
-     
-    />
-        </q-card-section>
-      </q-card>
+        <q-btn round color="red-5" icon="keyboard_arrow_right" />
+        </div>
       </div>
-      <div class="col">
-        <q-card style="max-width: 200px">
-        <q-card-section>
-          <div class="text">Doações Feitas</div>
-       
-        </q-card-section>
+    </q-btn-dropdown>
+      </q-toolbar>
+    </q-header>
 
-        <q-separator inset />
+    <q-drawer
+      v-model="leftDrawerOpen"
+      show-if-above
+      bordered
+      content-class="brand"
+    >
+      <q-list bordered class="rounded-borders">
+        <q-item-label header class="caption">Menu</q-item-label>
+        <q-item clickable to="/paginainicial">
+          <q-item-section avatar>
+            <q-icon name="home" />
+          </q-item-section>
+          <q-item-section > 
+            <q-item-label text-color="white" >Página Inicial</q-item-label>
+          </q-item-section>
+        </q-item>
 
-        <q-card-section>
-           <q-knob
-      :min="5"
-      :max="10"
-      v-model="value1"
-      show-value
-      size="50px"
-      :thickness="0.22"
-     color="red"
-      track-color="red-3"
-     
-    />
-        </q-card-section>
-      </q-card>
-      </div>
 
-<div class="col">
-      <q-card style="max-width: 200px">
-        <q-card-section>
-          <div class="text justify-center">Litros Doados</div>
-         
-        </q-card-section>
+      <q-item clickable>
+          <q-item-section avatar>
+            <q-icon name="person" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Perfil</q-item-label>
+          </q-item-section>
+        </q-item>
+  
+        <q-item clickable tag="a" to="/agendamentos">
+          <q-item-section avatar>
+            <q-icon name="calendar_today" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Agendamentos</q-item-label>
+          </q-item-section>
+        </q-item>
 
-        <q-separator inset />
-
-        <q-card-section>
-          <q-knob
-      :min="5"
-      :max="10"
-      v-model="value1"
-      show-value
-      size="50px"
-      :thickness="0.22"
-      color="lime"
-      track-color="lime-3"
-     
-     
-    />
-        </q-card-section>
-      </q-card>
-      </div>
-      <div class="col">
-       <q-card style="max-width: 200px">
-        <q-card-section>
-          <div class="text ">Próxima Doação</div>
+        <q-item clickable tag="a">
+          <q-item-section avatar>
+            <q-icon name="favorite" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Doações</q-item-label>
+          </q-item-section>
+        </q-item>
           
-        </q-card-section>
+      </q-list>
+    </q-drawer>
 
-        <q-separator inset />
-
-        <q-card-section>
-          <q-knob
-      :min="5"
-      :max="10"
-      v-model="value1"
-      show-value
-      size="50px"
-      :thickness="0.22"
-      color="orange"
-      track-color="orange-3"
-    />
-        </q-card-section>
-      </q-card>
-      </div>
-    </div>
-
-  </div>
-          </p>
-        </q-page>
-      </q-page-container>
-    </q-layout>
+    <q-page-container>
+      <router-view />
+    </q-page-container>
+  </q-layout>
 </template>
+
+<style lang="sass">
+
+.brand
+
+    background-color:(#D11E19)
+    color: white
+    font-size : 16px;
+</style>
+
+<style lang="sass">
+
+.caption
+    pading-top: 2px;
+    color: white
+    font-size : 11px;
+ 
+
+</style>
+
+<script>
+export default {
+  data () {
+    return {
+      leftDrawerOpen: false
+    }
+  }
+}
+</script>

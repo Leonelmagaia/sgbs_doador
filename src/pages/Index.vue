@@ -1,30 +1,30 @@
 <template>
-  <q-page class="flex flex-center">
-    <div class="q-pa-md q-gutter-md">
-    <q-btn color="teal" size="sm" label="Unread Mails">
-      <q-badge color="orange" floating transparent>
-        ∞
-      </q-badge>
-    </q-btn>
+  <div class="q-pa-md">
 
-    <q-btn dense round flat icon="email">
-      <q-badge color="red" floating transparent>
-        4
-      </q-badge>
-    </q-btn>
+  <div class="row justify-center">
+      
+    <div class="col-12 col-md-auto">
+          <br>
+          <br>
+          <br>
 
-    <div class="text-h4">
-      Title
-      <q-badge transparent align="middle" color="orange">
-        app v1.0.0
-      </q-badge>
+          <q-img src="arm-blood-close-up-1164531.jpg"/>
+
+          <h3 font-family="" > TEU SANGUE PODE SALVAR ATÉ 4 VIDAS </h3>
+          <h4>Juntos acabaremos com a falta de sangue em Moçambique!</h4>
+          <h4>Por um povo mais solidário</h4>
+          <br>
+          <q-btn outline rounded color="green" label="Quero tornar-me Doador" to="registo"/>
+
+    </div>
     </div>
   </div>
-  </q-page>
 </template>
 
 <script>
 export default {
   name: 'PageIndex'
 }
+
+
 </script>

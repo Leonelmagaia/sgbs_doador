@@ -31,12 +31,11 @@
           </template>
           <template v-slot:append>
             <q-icon name="close" @click="dador.nome = ''" class="cursor-pointer" />
-          </template>
+        </template>
 
         </q-input>
 
-
-    <q-input bottom-slots label="Apelido" :dense="dense">
+      <q-input bottom-slots label="Apelido" :dense="dense">
           <template v-slot:prepend>
             <q-icon name="person_outline" />
           </template>
@@ -76,7 +75,7 @@
               </q-popup-proxy>
             </q-icon>
           </template>
-        </q-input>
+   </q-input>
 
 
     <q-select

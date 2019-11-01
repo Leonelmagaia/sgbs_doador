@@ -9,8 +9,13 @@ const routes = [
       { path: 'processo', component: () => import('pages/processo.vue') },
       { path: 'registo', component: () => import('pages/registo.vue') },
       { path: 'login', component: () => import('pages/login.vue') },
-      { path: 'dashdoador', component: () => import('pages/dashdoador.vue') }
-
+    ],
+    component: () => import('pages/dashdoador.vue'),
+    children:[
+      { path: 'dashdoador', component: () => import('pages/dashdoador.vue') },
+      { path: 'paginainicial', component: () => import('pages/paginainicial.vue') },
+      { path: 'agendamentos', component: () => import('pages/agendamentos.vue') },
+      { path: 'marcar', component: () => import('pages/marcar.vue') }
     ]
   }
 ]

@@ -44,7 +44,7 @@
 
     <br>
 
-    <q-btn outline rounded color="green" label="Entrar"/>
+    <q-btn outline rounded color="green" label="Quero tornar-me Doador" to="registo"/>
 </div>
 </div>
 
