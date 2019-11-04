@@ -1,123 +1,80 @@
 <template>
-  <q-page padding>
-    <!-- content -->
-  <div class="q-pa-md">
-
-    <div class="row">
-      <div class="col">
-       <q-card style="max-width: 200px ">
-        <q-card-section>
-          <div class="text">Agendamentos</div>
-        </q-card-section>
-
-        <q-separator inset />
-
-        <q-card-section>
-       <q-knob
-      :min="5"
-      :max="10"
-      v-model="value1"
-      show-value
-      size="50px"
-      :thickness="0.22"
-      color="teal"
-      track-color="grey-3"
-     
-    />
-        </q-card-section>
-      </q-card>
-      </div>
-      <div class="col">
-        <q-card style="max-width: 200px">
-        <q-card-section>
-          <div class="text">Litros Doados</div>
-       
-        </q-card-section>
-
-        <q-separator inset />
-
-        <q-card-section>
-           <q-knob
-      :min="5"
-      :max="10"
-      v-model="value1"
-      show-value
-      size="50px"
-      :thickness="0.22"
-     color="red"
-      track-color="red-3"
-     
-    />
-        </q-card-section>
-      </q-card>
-      </div>
-
-<div class="col">
-      <q-card style="max-width: 200px">
-        <q-card-section>
-          <div class="text justify-center">Doadores Atendidos</div>
-         
-        </q-card-section>
-
-        <q-separator inset />
-
-        <q-card-section>
-          <q-knob
-      :min="5"
-      :max="10"
-      v-model="value1"
-      show-value
-      size="50px"
-      :thickness="0.22"
-      color="lime"
-      track-color="lime-3"
-     
-     
-    />
-        </q-card-section>
-      </q-card>
-      </div>
-      <div class="col">
-       <q-card style="max-width: 200px">
-        <q-card-section>
-          <div class="text ">Doadores reprovados</div>
-          
-        </q-card-section>
-
-        <q-separator inset />
-
-        <q-card-section>
-          <q-knob
-      :min="5"
-      :max="10"
-      v-model="value1"
-      show-value
-      size="50px"
-      :thickness="0.22"
-      color="orange"
-      track-color="orange-3"
-    />
-        </q-card-section>
-      </q-card>
-      </div>
-    </div>
-
-      
   
+  <div class="q-px-lg q-pb-md">
+    <q-timeline color="secondary">
+      <q-timeline-entry heading>
+        Destaques
+      </q-timeline-entry>
 
+      <q-timeline-entry
+        title="Próxima Doação"
+        subtitle="Janeiro 12, 2020"
+      >
+        <div>
+          Sua próxima doação está agendada para o dia 12 de Janeiro de 2020.
+          </div>
+      </q-timeline-entry>
+
+      <q-timeline-entry
+        title="Novembro Azul"
+        subtitle="Novembro 01, 2019"
+        icon="info"
+      >
+        <div>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </q-timeline-entry>
+
+      <q-timeline-entry heading>
+        Noticias
+      </q-timeline-entry>
+
+      <q-timeline-entry
+        title="Event Title"
+        subtitle="Outubro 22, 2019"
+        
+      >
+        <div>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </q-timeline-entry>
+
+      <q-timeline-entry
+        title="Event Title"
+        subtitle="Outubro 12, 2019"
+      >
+        <div>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </q-timeline-entry>
+
+      <q-timeline-entry
+        title="Event Title"
+        subtitle="February 22, 1986"
+        icon="info"
+      >
+        <div>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </q-timeline-entry>
+
+      <q-timeline-entry
+        title="Event Title"
+        subtitle="February 22, 1986"
+      >
+        <div>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </q-timeline-entry>
+
+      <q-timeline-entry
+        title="Event Title"
+        subtitle="February 22, 1986"
+        >
+        <div>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </q-timeline-entry>
+    </q-timeline>
   </div>
-
-
-  </q-page>
 </template>
-
-<style lang="sass">
-
-  
-</style>
-
-<script>
-export default {
-  // name: 'PageName',
-}
-</script>

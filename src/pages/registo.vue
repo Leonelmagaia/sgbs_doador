@@ -22,7 +22,7 @@
           :done="step > 1"
         >
     
-        <div class="q-pa-lg">
+      <div class="q-pa-lg">
       <div class="col-12 col-md-auto">
 
         <q-input bottom-slots label="Nome" :dense="dense">
@@ -207,7 +207,7 @@
         </div>
       </div>
 
-
+        
       
           </q-step>
 

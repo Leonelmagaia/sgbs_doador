@@ -19,29 +19,17 @@
      <q-space />
 
      <q-btn-dropdown
-      split
-      content-class="bg-red-7"
-
+      icon="person_outline"
+      color="red-5"
     >
       <div class="row no-wrap q-pa-md">
-        <div class="column">
-          <div class="text-h6 q-mb-md">Definicoes</div>
-          <q-toggle v-model="mobileData" label="Use Mobile Data" />
-          <q-toggle v-model="bluetooth" label="Bluetooth" />
-        </div>
-
-        <q-separator vertical inset class="q-mx-lg" />
 
         <div class="column items-center">
-          <q-avatar size="72px">
-            <img src="https://cdn.quasar.dev/img/boy-avatar.png">
-          </q-avatar>
-
-          <div class="text-subtitle1 q-mt-md q-mb-xs">Faruque</div>
-
-        <q-btn round color="red-5" icon="keyboard_arrow_right" />
+      
+        <q-btn color="red-5" label="Terminar Sessão"/>
         </div>
       </div>
+
     </q-btn-dropdown>
       </q-toolbar>
     </q-header>
@@ -64,7 +52,7 @@
         </q-item>
 
 
-      <q-item clickable>
+      <q-item disable to="/perfil">
           <q-item-section avatar>
             <q-icon name="person" />
           </q-item-section>
@@ -82,14 +70,6 @@
           </q-item-section>
         </q-item>
 
-        <q-item clickable tag="a">
-          <q-item-section avatar>
-            <q-icon name="favorite" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Doações</q-item-label>
-          </q-item-section>
-        </q-item>
           
       </q-list>
     </q-drawer>

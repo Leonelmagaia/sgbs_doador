@@ -47,37 +47,6 @@
 <br>
 <br>
 <br>
-<div class="footer">
-
-<div class="row">
-      <div class="col-auto">
-        <q-card dark bordered class="bg-grey-9 my-card">
-      <q-card-section>
-        <div class="text-h6">Our Changing Planet</div>
-      </q-card-section>
-
-      <q-separator dark inset />
-
-      <q-card-section>
-        {{ lorem }}
-      </q-card-section>
-    </q-card>
-      </div>
-      <div class="col-auto">
-        .col
-      </div>
-      <div class="col-auto">
-        .col
-      </div>
-    </div>
-      
-      
-  </div>
-    
-      
-  
-  
-
   </q-layout>
 </template>
 

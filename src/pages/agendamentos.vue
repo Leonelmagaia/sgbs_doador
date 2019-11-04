@@ -14,10 +14,11 @@
       binary-state-sort
        :filter="filter"
       class="my-sticky-header-table"
+      
     >
 
    <template v-slot:top-right>
-        <q-input borderless dense debounce="300" v-model="filter" placeholder="Search">
+        <q-input borderless dense debounce="300" v-model="filter" placeholder="Pesquisar">
           <template v-slot:append>
             <q-icon name="search" />
           </template>
@@ -84,6 +85,40 @@
         </q-tr>
       </template>
     </q-table>
+
+  <br>
+  <br>
+  <br>
+
+    <q-btn size="lg" round push color="red"  label="+">
+      
+        <q-popup-edit v-model="label" content-class="bg-white text-white">
+            <q-input filled v-model="date" mask="date" :rules="['date']" @click="$refs.qDateProxy.show()"  hint="Data"  style="width: 250px" >
+            <template v-slot:append>
+                <q-icon name="event" class="cursor-pointer">
+                <q-popup-proxy ref="qDateProxy" transition-show="scale" transition-hide="scale">
+                    <q-date title= "Aniversario" v-model="date" @input="() => $refs.qDateProxy.hide()" />
+                </q-popup-proxy>
+                </q-icon>
+            </template>
+            </q-input>
+
+            <q-input filled v-model="time" mask="time" :rules="['time']"  hint="Hora">
+            <template v-slot:append>
+                <q-icon name="access_time" class="cursor-pointer">
+                <q-popup-proxy :breakpoint="800">
+                    <q-time
+                        v-model="time"
+                        format24h
+                    />
+                </q-popup-proxy>
+                </q-icon>
+            </template>
+            </q-input>
+
+        </q-popup-edit>
+      
+    </q-btn>
   </div>
 </template>
 
@@ -143,14 +178,14 @@ mounted()  {
           
           name: 'Dador',
           required: true,
-          label: 'Doador',
+          label: 'Nome',
           align: 'left',
           field: row => row.name,
           format: val => `${val}`,
           sortable: true
           
         },
-        { name: 'calories', align: 'center', label: 'Data Agendada', field: 'data_agendada', sortable: true , },
+        { name: 'calories', align: 'center', label: 'Data do Agendamento', field: 'data_agendada', sortable: true , },
         { name: 'fat', label: 'Data da Triagem', field: 'data_agendada', sortable: true, style: 'width: 10px' },
         { name: 'carbs', label: 'Hora', field: 'hora' },
         { name: 'iron',align: 'center', label: 'Acção', field: 'iron', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) }

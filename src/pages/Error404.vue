@@ -6,12 +6,12 @@
         style="width:30vw;max-width:150px;"
       >
     </p>
-    <p class="text-faded">Sorry, nothing here...<strong>(404)</strong></p>
+    <p class="text-faded">Desculpa, nada aqui...<strong>(Erro 404)</strong></p>
     <q-btn
       color="secondary"
-      style="width:200px;"
+      style="width:100px;"
       to="/"
-      label="Go back"
+      label="Voltar"
     />
   </div>
 </template>
