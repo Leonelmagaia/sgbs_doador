@@ -103,8 +103,23 @@
 export default {
   data () {
     return {
-      leftDrawerOpen: false
+      leftDrawerOpen: false,
+
+      usuario : ''
+
     }
+  },
+
+mounted(){
+
+
+this.usuario = localStorage.getItem('myCat');
+
+} 
+,
+
+  methods: {
+
   }
 }
 </script>

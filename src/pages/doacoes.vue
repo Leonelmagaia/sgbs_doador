@@ -7,7 +7,7 @@
 </ul>
 
     <q-table
-      title="Agendamentos"
+      title="Doacoes "
       :data="data"
       :columns="columns"
       row-key="name"
@@ -126,10 +126,9 @@ mounted()  {
           sortable: true
           
         },
-        { name: 'calories', align: 'center', label: 'Data do Agendamento', field: 'data_agendada', sortable: true , },
-        { name: 'fat', label: 'Data de agendamento', field: 'data_agendada', sortable: true, style: 'width: 10px' },
-        { name: 'carbs', label: 'Hora', field: 'hora' },
-        { name: 'iron',align: 'center', label: 'Estado', field: 'iron', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) }
+         { name: 'data_coletada', align: 'center', label: 'Data Coletada', field: 'data_coletada', sortable: true , },
+        { name: 'hora_coletada', label: 'Hora Coletada', field: 'hora_coletada' },
+        { name: 'volume_coletado', label: 'Volume Coletado', field: 'volume_coletado' },
       ],
     }
   }

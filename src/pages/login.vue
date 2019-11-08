@@ -1,45 +1,217 @@
 <template>
+
+
+
+
+
+
+
+
+
+ <div class="q-pa-md ">
+
+ 
+     <p class="text-white">.</p>
   
-  <div class="q-pa-md">
+    <q-card-actions  class="row justify-center">
+ 
+      <div class="q-gutter-y-md column" style="max-width: 300px">
 
-    <div class="row justify-center">
       
-    <div class="col-12 col-md-auto">
+    <p class="text-h6 text-center" >Tela login</p> 
+   
+  <q-input outlined bottom-slots v-model="dador.email" label="Usuario" counter :dense="dense">
+        <template v-slot:prepend>
+          <q-icon name="person" />
+        </template>
+        <template v-slot:append>
+          <q-icon name="close" @click="text = ''" class="cursor-pointer" />
+        </template>
+
+        <template v-slot:hint>
+          Otavio
+        </template>
+      </q-input>
+ 
+
+      <q-input v-model="dador.senha" filled :type="isPwd ? 'password' : 'text'" hint="Data Nascimento" label="Senha">
+        <template v-slot:append>
+          <q-icon
+            :name="isPwd ? 'visibility_off' : 'visibility'"
+            class="cursor-pointer"
+            @click="isPwd = !isPwd"
+          />
+        </template>
+      </q-input>
+
+
     
-    <br>
-    <br>
+   <q-btn   color="red-5" v-close-popup @click="method1()" label = "Entrar">
 
-  <q-card>
-    <q-card-section>
-  <div class="q-pa-lg">
-      <div class="col-12 col-md-auto">
-    <h4> Autenticação</h4>
-        <q-input bottom-slots label="Email" :dense="dense">
-          <template v-slot:prepend>
-            <q-icon name="mail" />
-          </template>
-        </q-input>
+     
+   </q-btn>
 
-    <q-input bottom-slots label="Senha" :dense="dense">
-          <template v-slot:prepend>
-            <q-icon name="lock" />
-          </template>
-    </q-input>
-    <q-btn label="Entrar" outline rounded type="submit" :loading="submitting" class="q-mt-md" color="teal" to="paginainicial"/>
-    <br>
-    <br>
-    <label>Não tem uma conta? <a href="/registo">Clique Aqui</a></label>
-      </div>
+
+   <q-btn   color="primary" v-close-popup @click="registar()" label = "Registar-se">
+
+     
+   </q-btn>
+
+
+
+
+    </div>
+       
+           
+        </q-card-actions>
   </div>
 
-    </q-card-section>
-  </q-card>
-    </div>
-    </div>
-  </div>
 
+
+ 
 </template>
 
-<script>
 
+<script>
+import {bus} from '../router'
+import axios from 'axios';
+
+export default {
+  data(){
+    return {
+      user:{
+        nome:"Faruk",
+        pass:"123"
+      }
+    }
+  },
+
+mounted()  { 
+        //http://localhost:8085/api || https://sanguemozapi.herokuapp.com/api/
+ 
+ },
+    methods:{
+
+
+
+
+
+
+
+
+
+
+salvar(){
+
+    axios.post('https://sanguemozapi.herokuapp.com/api/login/' , {
+
+           
+        
+        senha: this.dador.senha,
+        email: this.dador.email,
+       
+
+                })
+                .then(function (response) {
+                    if(response.data === 'senhara incorreta'){
+                     
+                     alert(response.data)
+                    }
+                    else{
+                     console.log(response.data)
+                    $router.push('/') 
+                   
+                    }
+                 
+                })
+                .catch(function (error) {
+                });
+
+  },
+
+method1()
+  {
+ axios.post( 'https://sanguemozapi.herokuapp.com/api/login/' , {   senha: this.dador.senha, email: this.dador.email,} )
+ .then( ( res ) => {
+  this.method2(res.data)  
+  } )
+ .catch( ( err ) => { } );     
+  },
+
+method2(res){
+// statements
+ if(res === 'senha incorreta'){
+                     
+                    this.$q.notify(res)
+                    }
+                    else{
+
+           this.$router.push('/') 
+LocalStorage.setItem('myCat', 'Tom');
+
+  
+                   
+                  
+                    }
+
+} 
+,
+
+registar(){
+     this.$router.push('login/registro') 
+
+  
+   },
+   
+
+    },
+  data () {
+    return {
+
+
+  dador: {
+        nome: "",
+        endereco: "",
+        sexo: "",
+        telefone: "",
+        email: "",
+        numeroDeDoacoes: "",
+        nomeMae: "",
+        nomePai: "",
+        numeroDocumento: "",
+        tipoDocumento: "",
+        nacionalidade: "",
+        situacaoAptidao: "",
+        provincia: "",
+        fatorRH: "",
+        apelido: "",
+        grau: "",
+        nasc: "",
+        senha : ""
+       
+        
+      },
+     
+
+
+      msg: 'This is Ali s profile',
+      text: '',
+      ph: '',
+      password: '',
+      isPwd: true,
+
+      email: '',
+      search: '',
+      tel: '',
+      url: '',
+      time: '',
+      date: '',
+      data:[],
+
+      dense: false
+    }
+  }
+
+
+}
 </script>

@@ -1,230 +1,341 @@
 <template>
-  
   <div class="q-pa-md">
-
-    <div class="row justify-center">
-      
-    <div class="col-12 col-md-auto">
-  
-      <q-stepper
-        v-model="step"
-        ref="stepper"
-        animated
-        done-color="red-7"
-        active-color="red"
-        inactive-color="secondary"
+    <q-stepper
+      v-model="step"
+      ref="stepper"
+      animated
+      done-color="red-5"
+      active-color="red"
+      inactive-color="secondary"
+    >
+    
+      <q-step
+        :name="1"
+        title="Dados Básicos"
+        icon="user"
+        :done="step > 1"
       >
-    
-        <q-step
-          :name="1"
-          title="Informações Pessoais"
-          icon="user"
-          :done="step > 1"
-        >
-    
-      <div class="q-pa-lg">
-      <div class="col-12 col-md-auto">
+   
+      
 
-        <q-input bottom-slots label="Nome" :dense="dense">
-          <template v-slot:prepend>
-            <q-icon name="person_outline" />
-          </template>
-          <template v-slot:append>
-            <q-icon name="close" @click="dador.nome = ''" class="cursor-pointer" />
+
+       <div class="q-pa-lg">
+    <div class="q-gutter-md row items-end">
+
+       <q-input filled bottom-slots v-model="dador.nome" label="Nome" counter :dense="dense">
+        <template v-slot:prepend>
+          <q-icon name="person_outline" />
+        </template>
+        <template v-slot:append>
+          <q-icon name="close" @click="dador.nome = ''" class="cursor-pointer" />
         </template>
 
-        </q-input>
-
-      <q-input bottom-slots label="Apelido" :dense="dense">
-          <template v-slot:prepend>
-            <q-icon name="person_outline" />
-          </template>
-          <template v-slot:append>
-            <q-icon name="close" @click="dador.apelido = ''" class="cursor-pointer" />
-          </template>
-
-        </q-input>
-
-          <q-input bottom-slots label="Email" :dense="dense">
-          <template v-slot:prepend>
-            <q-icon name="mail" />
-          </template>
-          <template v-slot:append>
-            <q-icon name="close" @click="dador.email = ''" class="cursor-pointer" />
-          </template>
-
-        </q-input>
+        <template v-slot:hint>
+         Judite
+        </template>
+      </q-input>
 
 
-    <q-input bottom-slots label="Telefone" :dense="dense">
-          <template v-slot:prepend>
-            <q-icon name="phone_enabled" />
-          </template>
-          <template v-slot:append>
-            <q-icon name="close" @click="dador.telefone = ''" class="cursor-pointer" />
-          </template>
+  <q-input filled bottom-slots v-model="dador.apelido" label="Apelido" counter :dense="dense">
+        <template v-slot:prepend>
+          <q-icon name="person_outline" />
+        </template>
+        <template v-slot:append>
+          <q-icon name="close" @click="dador.apelido = ''" class="cursor-pointer" />
+        </template>
 
-        </q-input>
+        <template v-slot:hint>
+         Manjate
+        </template>
+      </q-input>
+
+        <q-input filled bottom-slots v-model="dador.email" label="Email" counter :dense="dense">
+        <template v-slot:prepend>
+          <q-icon name="mail" />
+        </template>
+        <template v-slot:append>
+          <q-icon name="close" @click="dador.email = ''" class="cursor-pointer" />
+        </template>
+
+        <template v-slot:hint>
+         judite123@gmail.com
+        </template>
+      </q-input>
+
+
+  <q-input filled bottom-slots v-model="dador.telefone" label="Telefone" counter :dense="dense">
+        <template v-slot:prepend>
+          <q-icon name="phone_enabled" />
+        </template>
+        <template v-slot:append>
+          <q-icon name="close" @click="dador.telefone = ''" class="cursor-pointer" />
+        </template>
+
+        <template v-slot:hint>
+         846771216
+        </template>
+      </q-input>
+    
+
+<!-- style="min-width: 250px; max-width: 300px ,top: 20px" -->
+ <q-input filled v-model="dador.nasc" mask="date" :rules="['date']" @click="$refs.qDateProxy.show()"  hint="Data de Nascimento"  style="width: 250px" >
+      <template v-slot:append>
+        <q-icon name="event" class="cursor-pointer">
+          <q-popup-proxy ref="qDateProxy" transition-show="scale" transition-hide="scale">
+            <q-date title= "Aniversario" v-model="dador.nasc" @input="() => $refs.qDateProxy.hide()" />
+          </q-popup-proxy>
+        </q-icon>
+      </template>
+    </q-input>
+
+
+ <q-select
+        filled
+        v-model="dador.sexo"
+        :options="sexo"
+          stack-label
+        label="Sexo"
+        hint="Masculino"
+        style="width: 250px"
+      />
+
+      <q-select
+        filled
+        v-model="dador.nacionalidade"
+        :options="cPaises"
+         stack-label
+        label="Nacionalidade"
+        hint="Moçambicana"
+        style="width: 250px"
+      />
+   
+      <q-select
+        filled
+        v-model="dador.provincia"
+        :options="provincia"
+          stack-label
+        label="Provincia"
+        hint="Maputo"
+        style="width: 250px"
+      />
+
       
 
-    <q-input mask="date" :rules="['date']" @click="$refs.qDateProxy.show()" label="Data de Nascimento" hint=""  style="width: 250px" >
-          <template v-slot:append>
-            <q-icon name="event" class="cursor-pointer">
-              <q-popup-proxy ref="qDateProxy" transition-show="scale" transition-hide="scale">
-                <q-date title= "Data de Nascimento" @input="() => $refs.qDateProxy.hide()" />
-              </q-popup-proxy>
-            </q-icon>
-          </template>
-   </q-input>
+    </div>
+
+   
+   
+  </div>
+      </q-step>
+
+      <q-step
+        :name="2"
+        title="Dados Intermediários"
+        caption="Opcionais"
+        icon="create_new_folder"
+        :done="step > 2"
+      >
 
 
-    <q-select
 
-            v-model="dador.sexo"
-            :options="sexo"
-              stack-label
-            label="Sexo"
-            hint=""
-            style="width: 250px"
-          />
 
-          <q-select
-            v-model="dador.nacionalidade"
-            :options="nacionalidade"
-            stack-label
-            label="Nacionalidade"
-            hint=""
-            style="width: 250px"
-          />
+
+
+
+
+
+
+   <div class="q-pa-lg">
+    <div class="q-gutter-md row items-end">
+
+       <q-input filled bottom-slots v-model="dador.nomePai" label="Nome de Pai" counter :dense="dense">
+        <template v-slot:prepend>
+          <q-icon name="sentiment_satisfied_alt" />
+        </template>
+        <template v-slot:append>
+          <q-icon name="close" @click="dador.nomePai = ''" class="cursor-pointer" />
+        </template>
+
+        <template v-slot:hint>
+         Mandjate Cossa
+        </template>
+      </q-input>
+
+
+  <q-input filled bottom-slots v-model="dador.nomeMae" label="Nome de Mãe" counter :dense="dense">
+        <template v-slot:prepend>
+          <q-icon name="face" />
+        </template>
+        <template v-slot:append>
+          <q-icon name="close" @click="dador.nomeMae = ''" class="cursor-pointer" />
+        </template>
+
+        <template v-slot:hint>
+         Rosita Cumbane
+        </template>
+      </q-input>
+
+
+  <q-input filled bottom-slots v-model="dador.telefoneParente" label="Telefone do Parente" counter :dense="dense">
+        <template v-slot:prepend>
+          <q-icon name="phone_enabled" />
+        </template>
+        <template v-slot:append>
+          <q-icon name="close" @click="dador.telefone = ''" class="cursor-pointer" />
+        </template>
+
+        <template v-slot:hint>
+         846771216
+        </template>
+      </q-input>
+    
+
+<!-- style="min-width: 250px; max-width: 300px ,top: 20px" -->
+
+
+
+ <q-select
+        filled
+        v-model="dador.grau"
+        :options="grau"
+          stack-label
+        label="Grau de Parentesco"
+        hint="Irmão"
+        style="width: 250px"
+      />
+
+      <q-select
+        filled
+        v-model="dador.fatorRH"
+        :options="rh"
+         stack-label
+        label="Fator RH"
+        hint="RH+"
+        style="width: 250px"
+      />
+
+
       
-          <q-select
-            v-model="dador.provincia"
-            :options="provincia"
-              stack-label
-            label="Provincia"
-            hint=""
-            style="width: 250px"
-          />
-
-          
-
-        </div>
-
-      
-      
-      </div>
-          </q-step>
-
-          <q-step
-            :name="2"
-            title="Informações Complementares"
-            icon="create_new_folder"
-            :done="step > 2"
-          >
+       
 
 
-      <div class="q-pa-lg">
-        <div class="col-12 col-md-auto">
 
-          <q-input bottom-slots v-model="dador.nomePai" label="Nome de Pai" :dense="dense">
-            <template v-slot:prepend>
-              <q-icon name="sentiment_satisfied_alt" />
-            </template>
-            <template v-slot:append>
-              <q-icon name="close" @click="dador.nome = ''" class="cursor-pointer" />
-            </template>
+      <q-select
+        filled
+        v-model="sangue_cod"
+        :options="options"
+          stack-label
+        label="Grupo Sanguineo"
+        hint="A+"
+        style="width: 250px"
+      />
 
-          </q-input>
-
-
-      <q-input bottom-slots v-model="dador.nomeMae" label="Nome de Mãe" :dense="dense">
-            <template v-slot:prepend>
-              <q-icon name="face" />
-            </template>
-            <template v-slot:append>
-              <q-icon name="close" @click="dador.apelido = ''" class="cursor-pointer" />
-            </template>
-
-          </q-input>
+    
 
 
-      <q-input bottom-slots v-model="dador.telefoneParente" label="Telefone do Parente" :dense="dense">
-            <template v-slot:prepend>
-              <q-icon name="phone_enabled" />
-            </template>
-
-            <template v-slot:append>
-              <q-icon name="close" @click="dador.telefone = ''" class="cursor-pointer" />
-            </template>
-
-          </q-input>
-        
-
-        <q-select
-            v-model="dador.grau"
-            :options="grau"
-            label="Grau de Parentesco"
-            hint=""
-            style="width: 250px"
-        />
-      
-            <q-select
-            v-model="dador.documento"
-            :options="documento"
-              stack-label
-            label="Documento"
-            hint=""
-            style="width: 250px"
-          />
-
-          <q-input bottom-slots v-model="dador.numeroDocumento" label="Número do Documento" :dense="dense">
-            <template v-slot:prepend>
-              <q-icon name="sentiment_satisfied_alt" />
-            </template>
-            <template v-slot:append>
-              <q-icon name="close" @click="dador.nomeDocumento = ''" class="cursor-pointer" />
-            </template>
-          </q-input>
-
-        
-          <q-input bottom-slots v-model="dador.senha" label="Senha" :dense="dense">
-            <template v-slot:prepend>
-              <q-icon name="sentiment_satisfied_alt" />
-            </template>
-            <template v-slot:append>
-              <q-icon name="close" @click="dador.senha = ''" class="cursor-pointer" />
-            </template>
-          </q-input>
-
-          <q-input bottom-slots v-model="dador.confirmarSenha" label="Confirmar Senha" :dense="dense">
-            <template v-slot:prepend>
-              <q-icon name="sentiment_satisfied_alt" />
-            </template>
-            <template v-slot:append>
-              <q-icon name="close" @click="dador.confirmarSenha = ''" class="cursor-pointer" />
-            </template>
-          </q-input>
-        </div>
-      </div>
-
-        
-      
-          </q-step>
-
-          <template v-slot:navigation>
-            <q-stepper-navigation>
-              <q-btn @click="$refs.stepper.next()" color="red-7" :label="step === 2 ? 'Finalizar' : 'Continuar'" />
-              <q-btn v-if="step > 1" flat color="red-7" @click="$refs.stepper.previous()" label="Voltar" class="q-ml-sm" />
-              <label>Já tem uma conta? <a href="/login">Clique Aqui</a></label>
-            </q-stepper-navigation>
-            
-          </template>
-        </q-stepper>
     
     </div>
-    </div>
-    </div>
+  </div>
 
+
+  
+      </q-step>
+
+      <q-step
+        :name="3"
+        title="Finalizar"
+        icon="add_comment"
+      >
+       
+
+       
+
+
+
+
+   <div class="q-pa-lg">
+    <div class="q-gutter-md row items-end">
+
+
+
+ 
+       <q-select
+        filled
+        v-model="dador.tipoDocumento"
+        :options="documento"
+          stack-label
+        label="Documento"
+        hint="BI"
+        style="width: 250px"
+      />
+
+        
+
+       <q-input filled bottom-slots  v-model="dador.numeroDocumento" label="Número do Doc" counter :dense="dense">
+        <template v-slot:prepend>
+          <q-icon name="sentiment_satisfied_alt" />
+        </template>
+
+        <template v-slot:hint>
+        1250448822B
+        </template>
+      </q-input>
+
+         <q-input v-model="dador.senha" filled :type="isPwd ? 'password' : 'text'" hint="Senha"  label = "Senha">
+        <template v-slot:append>
+          <q-icon
+            :name="isPwd ? 'visibility_off' : 'visibility'"
+            class="cursor-pointer"
+            @click="isPwd = !isPwd"
+          />
+        </template>
+
+
+      </q-input>
+  <q-input v-model="cpassword" filled :type="isPwd ? 'password' : 'text'" hint="Confirmar Senha"  label = "Confirmar Senha">
+        <template v-slot:append>
+          <q-icon
+            :name="isPwd ? 'visibility_off' : 'visibility'"
+            class="cursor-pointer"
+            @click="isPwd = !isPwd"
+          />
+        </template>
+
+
+      </q-input>
+
+    
+
+<!-- style="min-width: 250px; max-width: 300px ,top: 20px" -->
+
+
+
+
+    
+
+
+    
+    </div>
+  </div>
+
+      
+  
+
+
+      </q-step>
+
+      <template v-slot:navigation>
+        <q-stepper-navigation>
+
+          <q-btn     @click="salvar()"  v-if="step==3" label="salvar"   color="teal" />
+
+          <q-btn  v-if="step < 3"   @click="$refs.stepper.next()" color="deep-orange"   label="Continuar"    />
+          <q-btn v-if="step > 1" flat color="deep-orange" @click="$refs.stepper.previous()" label="Voltar" class="q-ml-sm" />
+       
+        </q-stepper-navigation>
+      </template>
+    </q-stepper>
+  </div>
 </template>
 
 <script>
@@ -244,6 +355,10 @@ export default {
       this.errors.push(e)
     })
 
+
+
+  this.paises();
+
  }
 ,
 
@@ -255,7 +370,16 @@ lista(val){
 
 
 if(val.length){
-  this.options = this.lista.map(o => {
+  this.cPaises = this.pais.map(o => {
+  return {
+      label:  o.name,
+      value:  o.name,
+  }
+  console.log(o.name);
+
+})
+
+this.options = this.lista.map(o => {
   return {
       label:  o.nome,
       value:  o.codigo
@@ -266,24 +390,43 @@ if(val.length){
 }
 }
 
-
-
 }
+
+
+
+
+
+
+
 ,
  data () {
     return {
       lista: [],
+      pais : [],
       model: null,
       sangue_cod:null,
+       currentObj: "",
       options: [],
+      cPaises : [],
       sexo: ['Masculino', 'Feminino','Outro'],
       grau: ['Irmão(a)', 'Mãe','Pai','Outro'],
       documento: ['BI','Passaporte','DIRE','Cartão de Eleitor','Outro'],
       date: '2019/02/01',
       s:'',
-      nacionalidade: ['Moçambique','Angola'],
-      provincia : ['Maputo','Gaza','Inhambane','Manica','Sofala','Tete','Nampula','Zambezia','Niassa','Cabo Delgado']
+      rh: ['RH+','RH-'],
+      nacionalidade: ['Moçambique','Outro'],
+      provincia : ['Maputo','Gaza','Inhambane','Manica','Sofala','Tete','Nampula','Zambezia','Niassa','Cabo Delgado', 'Outro'],
+      password: '',
+      cpassword: '',
 
+      isPwd: true,
+
+      email: '',
+      search: '',
+      tel: '',
+      url: '',
+      time: '',
+      date: ''
 
 
 
@@ -304,14 +447,16 @@ if(val.length){
         nacionalidade: "",
         situacaoAptidao: "",
         provincia: "",
+        fatorRH: "",
         apelido: "",
         grau: "",
-        senha:"",
-        confirmarSenha:""
+        nasc: "",
+        senha : ""
+       
         
       },
      
-
+  
       
      text: '',
      nome: '',
@@ -326,6 +471,75 @@ if(val.length){
 
 methods:{
 
+paises (){
+
+
+
+ axios.get(`https://restcountries.eu/rest/v2/all`)
+    .then(response => {
+      this.pais  = response.data     
+      console.log("--------------")
+
+    })
+    .catch(e => {
+      this.errors.push(e)
+    })
+
+ },
+
+
+
+ 
+
+
+
+
+
+
+
+  editar() {
+
+ axios.put('http://localhost:8086/api/dador/'  + this.sangue_cod.value, {
+
+           
+        nome: this.dador.nome,
+        endereco: this.dador.endereco,
+        sexo: this.dador.sexo,
+        telefone:this.dador.telefone,
+        email: this.dador.email,
+        data_nasc: this.dador.nasc,
+        fatorRH: this.dador.fatorRH,
+        // nacionalidade: this.dador.nacionalidade,
+        nomeMae: this.dador.nomeMae,
+        nomePai: this.dador.nomePai,
+        numeroDeDoacoes: "",
+        numeroDocumento: this.dador.numeroDocumento,
+        provincia: this.dador.provincia,
+        situacaoAptidao: "",
+        tipoDocumento: this.dador.tipoDocumento,
+
+
+                })
+                .then(function (response) {
+                    currentObj.output = response.data;
+                })
+                .catch(function (error) {
+                    currentObj.output = error;
+                });
+ 
+
+
+  }
+
+,
+showNotif () {
+      this.$q.notify({
+        message: this.currentObj,
+        color: 'dark',
+       
+
+      })
+    },
   simulateSubmit () {
       this.submitting = true
 
@@ -353,13 +567,25 @@ methods:{
         endereco: this.dador.endereco,
         sexo: this.dador.sexo,
         telefone:this.dador.telefone,
-        email: this.dador.apelido
+        email: this.dador.email,
+        data_nasc: this.dador.nasc,
+        fatorRH: this.dador.fatorRH,
+        // nacionalidade: this.dador.nacionalidade,
+        nomeMae: this.dador.nomeMae,
+        nomePai: this.dador.nomePai,
+        numeroDeDoacoes: "",
+        numeroDocumento: this.dador.numeroDocumento,
+        provincia: this.dador.provincia,
+        situacaoAptidao: "",
+        tipoDocumento: this.dador.tipoDocumento,
+        senha: this.dador.senha,
+
                 })
                 .then(function (response) {
-                    currentObj.output = response.data;
+                     alert(response.data);
+                 
                 })
                 .catch(function (error) {
-                    currentObj.output = error;
                 });
 
   }
