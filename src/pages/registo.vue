@@ -340,6 +340,7 @@
 
 <script>
 import axios from 'axios';
+
 export default {
   
 
@@ -474,7 +475,6 @@ methods:{
 paises (){
 
 
-
  axios.get(`https://restcountries.eu/rest/v2/all`)
     .then(response => {
       this.pais  = response.data     
@@ -571,6 +571,7 @@ showNotif () {
         data_nasc: this.dador.nasc,
         fatorRH: this.dador.fatorRH,
         // nacionalidade: this.dador.nacionalidade,
+        senha: this.dador.senha,
         nomeMae: this.dador.nomeMae,
         nomePai: this.dador.nomePai,
         numeroDeDoacoes: "",
@@ -578,7 +579,6 @@ showNotif () {
         provincia: this.dador.provincia,
         situacaoAptidao: "",
         tipoDocumento: this.dador.tipoDocumento,
-        senha: this.dador.senha,
 
                 })
                 .then(function (response) {

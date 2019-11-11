@@ -14,7 +14,7 @@
 
         <q-toolbar-title>
           <q-icon name="favorite" />
-          SGBS
+          SGBS {{id}}
         </q-toolbar-title>
      <q-space />
 
@@ -127,8 +127,24 @@
 export default {
   data () {
     return {
-      leftDrawerOpen: false
+      leftDrawerOpen: false,
+
+      id : '',
+
+
+
+
+      
     }
+  
+
   }
+,
+mounted(){
+this.id  = localStorage.getItem('myCat');
+
+}
+
+
 }
 </script>

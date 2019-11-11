@@ -88,7 +88,7 @@ export default {
 
 mounted()  { 
     
-  axios.get(`https://sanguemozapi.herokuapp.com/api/agendamento`)
+  axios.get(`https://sanguemozapi.herokuapp.com/api/dadoragendamento/`+7)
     .then(response => {
       // JSON responses are automatically parsed.
       this.data = response.data

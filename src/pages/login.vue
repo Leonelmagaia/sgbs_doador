@@ -89,45 +89,14 @@ export default {
 mounted()  { 
         //http://localhost:8085/api || https://sanguemozapi.herokuapp.com/api/
  
+
+
+
  },
     methods:{
 
 
 
-
-
-
-
-
-
-
-salvar(){
-
-    axios.post('https://sanguemozapi.herokuapp.com/api/login/' , {
-
-           
-        
-        senha: this.dador.senha,
-        email: this.dador.email,
-       
-
-                })
-                .then(function (response) {
-                    if(response.data === 'senhara incorreta'){
-                     
-                     alert(response.data)
-                    }
-                    else{
-                     console.log(response.data)
-                    $router.push('/') 
-                   
-                    }
-                 
-                })
-                .catch(function (error) {
-                });
-
-  },
 
 method1()
   {
@@ -143,15 +112,14 @@ method2(res){
  if(res === 'senha incorreta'){
                      
                     this.$q.notify(res)
+                    
                     }
                     else{
 
-           this.$router.push('/') 
-LocalStorage.setItem('myCat', 'Tom');
-
-  
-                   
-                  
+                  this.$router.push('/') 
+                  localStorage.setItem('myCat', res);
+            
+                                     
                     }
 
 } 
